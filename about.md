@@ -1,15 +1,16 @@
 ---
 layout: post
-title: "About"
-author: "Chester"
+title: "Mughie A"
+subtitle: "Junior Software Engineer"
+type: "About"
+author: "Mughie A"
 permalink: /about/
+post-header: true
+header-img: img/about.jpg
 ---
+Highly motivated to try and learn something new, while keeping curious to deeply understand how things work. Loves to push self-limit to manage working time effectively and like to solve problems. Adept in working with engineers and project managers at multiple levels to utilize data and resource effectively and achieve optimal results.
 
-A friend of mine writes short stories. One sunny day, I asked if he wanted a website to showcase his works and he agreed. I decided to use GitHub Pages to host his site. That way he wouldn't have to buy a domain and a server.
+## Honor and Award
 
-While doing some research up on GitHub Pages, I accidentally chanced upon this _simple, blog-aware, static site generator_ called [Jekyll](https://jekyllrb.com/) which works really well with GitHub Pages. I figured it would do just fine for my friend and I set about searching for a pretty theme. I wanted a theme with a _book-ish_ vibe. Unfortunately, most of the themes were too modern. Eventually, I caved and begun working on my own theme. With the help of [Poole](https://github.com/poole/poole), the Jekyll Butler, I was able to build **Tale**.
-
-## Contribute
-Feel free to create an issue or make a pull request on [GitHub](https://github.com/chesterhow/tale).
-
-Thanks for reading!
+- **Best Final Assignment** for "_Recorded Conversation Audio Transcriptionist Aplication for Customer Care PT. Telekomunikasi Indonesia Tbk._" in the 2019 Graduation Ceremony Politeknik Negeri Bandung.
+- Editor at [**Event Break a Record MURI**](http://jtk.polban.ac.id/2019/09/jtk-pecahkan-rekor-muri/) for "_Kompetisi Programming dan Computional Thinking Pertama yang disiarkan secara Lansung melalui Youtube_" in 2019.

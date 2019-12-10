@@ -1,11 +1,22 @@
+{% assign current = page.url | downcase | split: '/' %}
 <nav class="nav">
   <div class="nav-container">
-    <a href="{{ site.baseurl }}/">
-      <h2 class="nav-title">{{ site.title }}</h2>
-    </a>
-    <ul>
-      <li><a href="{{ '/about' | prepend: site.baseurl }}">About</a></li>
-      <li><a href="{{ site.baseurl }}/">Posts</a></li>
-    </ul>
+      <ul>
+          <li class="transition">
+              <a href="{{ '' | prepend: site.baseurl }}/" {% if current[1] == "about" or current[1] == "blog" or current[1] == "paperback" or current[1] == "project" %} class="normal" {% endif %} class="active">Home</a>
+          </li>
+          <li class="transition">
+              <a href="{{ '/project' | prepend: site.baseurl }}" {% if current[1] == "project" %} class="active"{% endif %} >Project</a>
+          </li>
+          <li class="transition">
+              <a href="{{ '/blog' | prepend: site.baseurl }}/" {% if current[1] == "blog" %} class="active"{% endif %} >Blog</a>
+          </li>
+          <li class="transition">
+              <a href="{{ '/paperback' | prepend: site.baseurl }}" {% if current[1] == "paperback" %} class="active"{% endif %} >Paperback</a>
+          </li>
+          <li class="transition">
+              <a href="{{ '/about' | prepend: site.baseurl }}" {% if current[1] == "about" %} class="active"{% endif %} >About</a>
+          </li>
+      </ul>
   </div>
 </nav>
