@@ -73,7 +73,7 @@ footer>.footer_wrap,
 
 footer {
     font-family: $source;
-    padding: 36px 0 46px 0;
+    padding: 16px 0 26px 0;
     background-color: $grey-3;
     color: $default-tint;
     border-top: 1px solid $grey-2;
@@ -101,7 +101,7 @@ footer {
             }
             
             .accounts {
-                margin-top: 36px;
+                margin-top: 16px;
                 a {
                     margin-right: 24px;
                     svg {
@@ -126,7 +126,7 @@ footer {
                 margin-top: 6px;
             }
             span {
-                font-size: 16px;
+                font-size: 14px;
             }
         }
     }
