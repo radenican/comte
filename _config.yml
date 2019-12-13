@@ -1,6 +1,5 @@
 # Site settings
 title:          Mughie Ams
-description:    "Minimal Jekyll theme for storytellers"
 baseurl:        "/tale"
 url:            "https://mughieams.com"
 
