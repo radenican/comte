@@ -14,3 +14,12 @@ Highly motivated to try and learn something new, while keeping curious to deeply
 
 - **Best Final Assignment** for "_Recorded Conversation Audio Transcriptionist Aplication for Customer Care PT. Telekomunikasi Indonesia Tbk._" in the 2019 Graduation Ceremony Politeknik Negeri Bandung.
 - Editor at [**Event Break a Record MURI**](http://jtk.polban.ac.id/2019/09/jtk-pecahkan-rekor-muri/) for "_Kompetisi Programming dan Computional Thinking Pertama yang disiarkan secara Lansung melalui Youtube_" in 2019.
+
+<br>
+Cheers,
+
+<div style="align: right">
+    <img src="{{ "/assets/signature.png" | relative_url }}" width="210"/>
+</div>
+
+@mughieams 🐳
