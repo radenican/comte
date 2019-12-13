@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Mughie A"
+title: "Mughie Ams"
 subtitle: "Junior Software Engineer"
 type: "About"
-author: "Mughie A"
+author: "Mughie Ams"
 permalink: /about/
 post-header: true
 header-img: img/about.jpg
