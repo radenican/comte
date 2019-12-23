@@ -1,6 +1,6 @@
 # Site settings
 title:          Mughie Ams
-baseurl:        "/tale"
+baseurl:        ""
 url:            "https://mughieams.com"
 
 # Google Analytics
