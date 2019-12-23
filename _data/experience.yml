@@ -1,14 +1,12 @@
-third-place:
 - name: OVO · Prudential
-  role: Back End Engineer, Production Support
-  date: 2019. AUG - Present
-
-second-place:
+  details:
+    - role: Back End Engineer, Production Support
+    - date: 2019. Aug - Present
 - name: Logo De Corps
-  role: Front End Engineer Part Time
-  date: 2018. NOV - 2019. MAR
-
-first-place:
-- name: Kazee
-  role: Data Engineer Intern
-  date: 2018. JUL - 2018. SEP
+  details:
+    - role: Front End Engineer Part Time
+    - date: 2018. Nov - 2019. Mar
+- name: KAZEE
+  details:
+    - role: Data Engineer Intern
+    - date: 2018. Jul - 2018. Sep
