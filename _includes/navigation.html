@@ -1,0 +1,22 @@
+<nav class="nav">
+    <div class="nav-container">
+        <ul>
+            {% for nav in site.data.nav %}
+            {% assign path = '/' | append: nav.name | downcase %}
+            {% if page.url contains path %}
+            {% assign class = "active" %}
+            {% else %}
+            {% assign class = "normal" %}
+            {% endif %}
+            <li class="transition">
+                {% if path != '/home' %}
+                <a href="{{ path | prepend: site.baseurl }}" class="{{ class }}">{{ nav.name }}</a>
+                {% else %}
+                <a href="{{ '/' | prepend: site.baseurl }}" {% if page.url == '/' and path == '/home' %} class="active"
+                    {% endif %}>Home</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>

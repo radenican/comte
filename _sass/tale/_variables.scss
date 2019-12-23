@@ -1,0 +1,50 @@
+// Initialize
+
+p, h2 {
+  margin: 0;
+}
+
+// Colors
+$default-color: #555;
+$default-shade: #10171f;
+$default-tint: #8898aa;
+$grey-0: #333e4c;
+$grey-0-80: rgba(51, 62, 76, .8);
+$grey-1: #90949a;
+$grey-2: #D8E0E7;
+$grey-2-70: rgba(216, 224, 231, .7);
+$grey-3: #ecfcff;
+$grey-4: #ebeff2;
+$grey-5: #c1cad4;
+$grey-6: #b3bcc4;
+$white: #fff;
+$blue: #4a9ae1;
+$yellow: #FEE85A;
+$shadow-color: rgba(0, 0, 0, .2);
+$code-color: #bf616a;
+$ridi-blue: #1f8ce6;
+$ridi-skyblue: #66baff;
+$dark-blue: #2a87dd;
+$light-blue: #375375;
+
+// Media
+$break-medium: 900px;
+$break-small: 670px;
+
+// Fonts
+$san-serif: "Source Sans Pro", "APPLE SD Gothic Neo", HelveticaNeue, Helvetica, "NanumGothic", "Malgun Gothic", arial, sans-serif;
+$serif: "Nanum Myeongjo", sans-serif;
+$source: 'Source Sans Pro', sans-serif; 
+$monospaced: Menlo, Monaco, monospace;
+
+@mixin box-sizing($type: border-box) {
+  -webkit-box-sizing: $type;
+     -moz-box-sizing: $type;
+          box-sizing: $type;
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+     -moz-transition: $args;
+          transition: $args;
+}

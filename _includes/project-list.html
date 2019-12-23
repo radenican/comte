@@ -1,0 +1,13 @@
+{% for work in site.data.experience %}
+<li class="workplace transition">
+    <p class="workplace-name"> {{ work.name }} </p>
+    <div class="work-info">
+    {% for detail in work.details %}
+        <p> {{ detail.role }} </p>
+        <p class="work-sub-info">
+            {{ detail.date }}
+        </p>
+    {% endfor %}
+    </div>
+</li>
+{% endfor %}
