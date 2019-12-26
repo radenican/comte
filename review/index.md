@@ -1,7 +1,7 @@
 ---
 layout: default
 draft: true
-title: Paperback
+title: Review
 description: My reviews about Book 📖 and Movies 🎬 that i recomended!
 project-header: true
 header-img: "img/project_bg.jpg"
