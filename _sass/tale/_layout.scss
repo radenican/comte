@@ -78,6 +78,9 @@ footer {
     color: $default-tint;
     border-top: 1px solid $grey-2;
     border-bottom: 1px solid $grey-2;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
     
     .footer_wrap {
         font-style: normal;

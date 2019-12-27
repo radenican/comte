@@ -6,11 +6,13 @@
 html,
 body {
   color: $default-color;
+  min-height: 100%;
   margin: 0;
   padding: 0;
 }
 
 html {
+  height: 100%;
   font-family: $san-serif, $source;
   font-size: 17px;
 
@@ -20,7 +22,14 @@ html {
 }
 
 body {
+  position: relative;
   -webkit-text-size-adjust: 100%;
+}
+
+body::after {
+  content: '';
+  display: block;
+  height: 56px; /* Set same as footer's height */
 }
 
 h1,
