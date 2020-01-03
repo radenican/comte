@@ -60,7 +60,7 @@ task :test_structure do
   puts 'Testing post structure...'.bold
   file = File.absolute_path('./_site/about/index.html')
   if !File.exists?(file)
-    $stderr.puts "Error: Folderstructure has changed!".bold
+    $stderr.puts "Error: Folder structure has changed!".bold
     exit
   end
   puts 'The post structure is now tested!'
