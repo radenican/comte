@@ -20,7 +20,6 @@ desc 'Build the site'
 task build: [:clean] do
     puts 'Building your website...'.bold
     config = Jekyll.configuration({
-      title: ENV["TITLE"],
       google_analytics: ENV["GOOGLE_ANALYTICS"],
       weglot_translation: ENV["WEGLOT_TRANSLATION"],
     })
