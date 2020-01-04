@@ -13,7 +13,11 @@ end
 desc "Serve the site"
 task :serve do
     puts 'Serving your website...'.bold
-    sh 'bundle exec jekyll serve'
+    if RUBY_PLATFORM.downcase =~ /mswin|msys|mingw|cygwin|bccwin|wince|emc/
+	sh 'bundle exec jekyll serve'
+    else
+    	Jekyll::Commands::Serve.process(livereload: true)
+    end
 end
 
 desc 'Build the site'
