@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  deploy:
+  build:
     docker:
       - image: circleci/ruby:2.6.5-node-browsers
     steps:
@@ -11,9 +11,29 @@ jobs:
           command: |
             gem install bundler -v 2.1.2
       - run: bundle install
-      - run: bundle exec jekyll build
+      - run: bundle exec rake build
+  test_html:
+    docker:
+      - image: circleci/ruby:2.6.5-node-browsers
+    steps:
+      - checkout
+      - run: bundle update
+      - run: bundle exec rake test_html
+  test_structure:
+    docker:
+      - image: circleci/ruby:2.6.5-node-browsers
+    steps:
+      - checkout
+      - run: bundle update
+      - run: bundle exec rake test_structure
 workflows:
   version: 2
-  build:
+  build-test:
     jobs:
-      - deploy
+      - build
+      - test_html:
+          requires:
+            - build
+      - test_structure:
+          requires:
+            - build
