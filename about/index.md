@@ -8,7 +8,9 @@ permalink: /about/
 post-header: true
 header-img: img/about.jpg
 ---
+<div style="text-align: justify; text-justify: inter-word;">
 Highly motivated to try and learn something new, while keeping curious to deeply understand how things work. Loves to push self-limit to manage working time effectively and like to solve problems. Adept in working with engineers and project managers at multiple levels to utilize data and resource effectively and achieve optimal results.
+</div>
 
 ## Honor and Award
 
