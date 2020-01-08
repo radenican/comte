@@ -11,6 +11,10 @@ jobs:
             gem install bundler -v 2.1.2
       - run: bundle install
       - run: bundle exec rake build
+      - run:
+          name: Copy Gemfile and gemspec
+          command: |
+            cp Gemfile tale.gemspec ./_site/
       - persist_to_workspace:
           root: ./
           paths:
