@@ -13,8 +13,6 @@ jobs:
       - run: bundle exec rake build
       - persist_to_workspace:
           root: ./
-          paths:
-            - _site
   test_html:
     docker:
       - image: circleci/ruby:2.7.0
