@@ -2,29 +2,32 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.5-node-browsers
+      - image: circleci/ruby:2.7.0
     steps:
       - checkout
-      - run: npm install
       - run:
           name: Configure Bundler
           command: |
             gem install bundler -v 2.1.2
       - run: bundle install
       - run: bundle exec rake build
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - _site
   test_html:
     docker:
-      - image: circleci/ruby:2.6.5-node-browsers
+      - image: circleci/ruby:2.7.0
     steps:
-      - checkout
-      - run: bundle update
+      - attach_workspace:
+          at: ./
       - run: bundle exec rake test_html
-  test_structure:
+  test_structure: 
     docker:
-      - image: circleci/ruby:2.6.5-node-browsers
+      - image: circleci/ruby:2.7.0
     steps:
-      - checkout
-      - run: bundle update
+      - attach_workspace:
+          at: ./
       - run: bundle exec rake test_structure
 workflows:
   version: 2
