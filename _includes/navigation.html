@@ -1,7 +1,7 @@
 <nav class="nav">
     <div class="nav-container">
         <ul>
-            {% for nav in site.data.nav %}
+            {% for nav in site.data.navigation %}
             {% assign path = '/' | append: nav.name | downcase %}
             {% if page.url contains path %}
             {% assign class = "active" %}
