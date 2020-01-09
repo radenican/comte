@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Copy Bundle Directory
           command: |
-            cp -r ./bundle/ ./_site/
+            cp -r ./.bundle/ ./_site/
       - persist_to_workspace:
           root: ./
           paths:
