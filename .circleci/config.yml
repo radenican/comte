@@ -15,61 +15,29 @@ jobs:
             - rubygems-v1-{{ checksum "Gemfile.lock" }}
             - rubygems-v1-fallback
       - run: bundle config set path 'vendor/bundle'
-      - run: bundle install
+      - run: bundle check || bundle install
       - save_cache:
           key: rubygems-v1-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-      - run: bundle exec rake build
+      - run: 
+          name: Build Jekyll
+          command: |
+            bundle exec rake build
+      - run:
+          name: HTMLProofer Test HTML File
+          command: |
+            bundle exec rake test_html
+      - run:
+          name: HTMLProofer Test Structure Post
+          command: |
+            bundle exec rake test_structure
       - persist_to_workspace:
           root: ./
           paths:
             - _site
-  test_html:
-    <<: *defaults
-    docker:
-      - image: circleci/ruby:2.7.0
-    environment:
-      BUNDLE_PATH: ~/repo/vendor/bundle
-    steps:
-      - attach_workspace:
-          at: ./
-      - run:
-          name: Create Bundle Directory
-          command: |
-            if [[ ! -d ./.bundle || ! -f ./Gemfile ]]
-            then
-              mkdir .bundle
-              cd .bundle
-              wget 'https://gist.githubusercontent.com/mughieams/45d45643b0db3fd1ea388a8b5645a4f6/raw/7c2ebb009d92196ca0a4658c81df77406d7ecff6/config'
-              cd ../
-              wget 'https://gist.githubusercontent.com/mughieams/1cfa84598d9de057d86baf30c839e819/raw/b23b10590c6b44391f69a050497c1d0e18ded376/Gemfile'
-            fi
-            ls
-      - run: bundle install
-      - run: bundle exec rake test_html
-  test_structure: 
-    <<: *defaults
-    docker:
-      - image: circleci/ruby:2.7.0
-    environment:
-      BUNDLE_PATH: ~/repo/vendor/bundle
-    steps:
-      - attach_workspace:
-          at: ./
-      - restore_cache:
-          keys:
-            - rubygems-v1-{{ checksum "Gemfile.lock" }}
-            - rubygems-v1-fallback
-      - run: bundle exec rake test_structure
 workflows:
   version: 2
-  build-test:
+  build-deploy:
     jobs:
       - build
-      - test_html:
-          requires:
-            - build
-      - test_structure:
-          requires:
-            - build
