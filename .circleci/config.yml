@@ -14,12 +14,9 @@ jobs:
           name: Configure Bundler
           command: |
             gem install bundler -v 2.1.2
-      - run: bundle install --path vendor/bundle
+      - run: bundle config set path 'vendor/bundle'
+      - run: bundle install
       - run: bundle exec rake build
-      - run:
-          name: Copy Bundle Directory
-          command: |
-            cp -r ~/repo/.bundle/ ./_site/
       - persist_to_workspace:
           root: ./
           paths:
@@ -33,6 +30,16 @@ jobs:
     steps:
       - attach_workspace:
           at: ./
+      - run:
+          name: Create Bundle Directory
+          command: |
+            if [[ ! -d ./.bundle || ! -f ./Gemfile ]]
+            then
+              mkdir .bundle
+              cd .bundle
+              wget 'https://gist.githubusercontent.com/mughieams/45d45643b0db3fd1ea388a8b5645a4f6/raw/7c2ebb009d92196ca0a4658c81df77406d7ecff6/config'
+            fi
+      - checkout
       - run: bundle exec rake test_html
   test_structure: 
     <<: *defaults
