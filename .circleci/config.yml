@@ -57,6 +57,10 @@ jobs:
     steps:
       - attach_workspace:
           at: ./
+      - restore_cache:
+          keys:
+            - rubygems-v1-{{ checksum "Gemfile.lock" }}
+            - rubygems-v1-fallback
       - run: bundle exec rake test_structure
 workflows:
   version: 2
