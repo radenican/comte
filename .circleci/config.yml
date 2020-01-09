@@ -40,6 +40,7 @@ jobs:
               wget 'https://gist.githubusercontent.com/mughieams/45d45643b0db3fd1ea388a8b5645a4f6/raw/7c2ebb009d92196ca0a4658c81df77406d7ecff6/config'
               cd ../
             fi
+      - run: bundle install
       - run: bundle exec rake test_html
   test_structure: 
     <<: *defaults
