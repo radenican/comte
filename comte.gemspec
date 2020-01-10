@@ -1,13 +1,13 @@
 # coding: utf-8
 
 Gem::Specification.new do |spec|
-  spec.name          = "tale"
-  spec.version       = "0.1.7"
-  spec.authors       = ["Chester How"]
-  spec.email         = ["chesterhow@gmail.com"]
+  spec.name          = "comte"
+  spec.version       = "0.1.0"
+  spec.authors       = ["Mughie Ams"]
+  spec.email         = ["mughieams24@gmail.com"]
 
-  spec.summary       = %q{Tale is a minimal Jekyll theme curated for storytellers.}
-  spec.homepage      = "https://github.com/chesterhow/tale"
+  spec.summary       = %q{Comte is a minimal Jekyll theme based on Tale by Chester How.}
+  spec.homepage      = "https://github.com/mughieams/comte"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^(assets|_layouts|_includes|_sass|LICENSE|README)}i) }
