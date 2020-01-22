@@ -1,6 +1,6 @@
 # Site settings
-title:          Mughie Ams
-baseurl:        ""
+title:          Comte
+baseurl:        "/comte"
 url:            "https://mughieams.com"
 
 # Google Analytics
@@ -30,13 +30,25 @@ sass:
 # Gems
 plugins:
   - jekyll-feed
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-seo-tag
   # - jemoji #Uncomment this to allow emoji in your post
 
 # Permalinks
-permalink:      /:year-:month-:day/:title
-paginate:       5
+permalink:      /:year/:month/:title
+
+# Pagination settings
+pagination:
+  enabled: true
+  per_page: 3
+  permalink: '/page/:num/'
+  title: :title
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
 
 # Excludes
 exclude: [ Gemfile, Gemfile.lock, comte.gemspec ]
+
+# Disqus (Set to your disqus id)
+disqus:         jekyll-comte
