@@ -1,7 +1,7 @@
 # Site settings
 title:          Comte
-baseurl:        "/comte"
-url:            "https://mughieams.com"
+baseurl:        ""
+url:            ""
 
 # Google Analytics
 google_analytics: UA-154360741-1
