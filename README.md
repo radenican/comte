@@ -1,6 +1,7 @@
 # Tale
 
 [![Gem Version](https://badge.fury.io/rb/tale.svg)](https://badge.fury.io/rb/tale)
+[![CircleCI](https://circleci.com/gh/mughieams/comte.svg?style=svg)](https://circleci.com/gh/mughieams/comte)
 
 Tale is a minimal Jekyll theme curated for storytellers. Checkout the demo [here](https://chesterhow.github.io/tale/).
 
