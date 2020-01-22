@@ -44,7 +44,8 @@ padding-bottom: 60px;
   p {
       line-height: 1.8;
       margin: 0 0 10px 0;
-      word-break: break-all;
+      text-align: justify;
+      word-break: normal;
       font-family: $san-serif;
       font-weight: 400;
       letter-spacing: -0.009em;
@@ -55,10 +56,25 @@ padding-bottom: 60px;
           color: $dark-blue;
       }
   }
+
   img {
       margin: 0 auto;
   }
-         
+
+  img + em {
+    line-height: 1.6;
+    color: $grey-1;
+    display: block;
+    font-family: $san-serif;
+    font-size: 17px;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    padding-bottom: 40px;
+    @media (max-width: $break-small) {
+        font-size: 15px;
+    }
+  }      
 }
   
   a {
@@ -140,16 +156,9 @@ padding-bottom: 60px;
   }
   
   h6 {
-      line-height: 1.6;
-      font-size: 17px;
-      padding-bottom: 40px;
-      color: $grey-1;
+      font-size: 15px;
       font-weight: 400;
-      text-align: center;
-      @media (max-width: $break-small) {
-          font-size: 15px;
-      }
-      
+      padding-bottom: 40px;
   }
   
   figcaption {
