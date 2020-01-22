@@ -40,6 +40,7 @@ task :test_html do
     :allow_hash_href => true,   # don't break on <a href="#">
     :assume_extension => true,  # (true) for extensionless paths
     :check_html => true,
+    :disable_external => true,
     :empty_alt_ignore => true,
     :check_favicon => true,
     :check_img_http => true,
