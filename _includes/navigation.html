@@ -1,3 +1,4 @@
+<!-- Start navigation -->
 <nav class="nav">
     <div class="nav-container">
         <ul>
@@ -12,11 +13,12 @@
                 {% if path != '/home' %}
                 <a href="{{ path | prepend: site.baseurl }}" class="{{ class }}">{{ nav.name }}</a>
                 {% else %}
-                <a href="{{ '/' | prepend: site.baseurl }}" {% if page.url == '/' and path == '/home' %} class="active"
-                    {% endif %}>Home</a>
+                <a href="{{ '/' | prepend: site.baseurl }}" {% if page.url == '/' and path == '/home' %}
+                    class="active" {% endif %}>Home</a>
                 {% endif %}
             </li>
             {% endfor %}
         </ul>
     </div>
 </nav>
+<!-- End navigation -->

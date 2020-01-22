@@ -1,2 +1,9 @@
-<div class="post-header loading-animation" style="background-image: url('{{ page.header-img }}')">
+<!-- Start post header -->
+{% unless page.header.img == '' or page.header.img == nil %}
+<div class="post-header loading-animation" style="background-image: url('{{ page.header.img | relative_url }}')">
 </div>
+{% else %}
+<div class="post-header loading-animation" style="background-image: url('/assets/img/blog/blog.png')">
+</div>
+{% endunless %}
+<!-- End post header -->
