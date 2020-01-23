@@ -22,6 +22,15 @@ layout: default
     </h2>
   </div>
 
+  {% if page.draft %}
+  <div class="catalogue-draft-message">
+    <h1>
+      🙋‍♂️ Coming Soon!
+    </h1>
+    I am writing hard now. Be patience!
+  </div>
+  {% else %}
+
   {% if page.portfolio.enabled %}
   <article class="portfolio-info">
     <div>
@@ -44,15 +53,8 @@ layout: default
   </article>
   {% endif %}
 
-  {% if page.draft %}
-  <div class="catalogue-draft-message">
-    <h1>
-      🙋‍♂️ Coming Soon!
-    </h1>
-    I am writing hard now. Be patience!
-  </div>
-  {% else %}
   {{ content }}
+  
   {% endif %}
 </div>
 
