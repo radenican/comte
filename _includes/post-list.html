@@ -3,6 +3,15 @@
     {% for post in paginator.posts %}
     <li class="catalogue-item">
         <a href="{{ post.url | prepend: site.baseurl }}">
+            <!-- If Portfolio enabled -->
+            {% if post.portfolio.enabled %}
+                {% unless post.header.img == '' or post.header.img == nil %}
+                    <img src="{{ post.header.img | relative_url }}" class="catalogue-img"/>
+                {% else %}                    
+                    <img src="{{ '/assets/img/blog/blog.png' | relative_url }}" class="catalogue-img"/>
+                {% endunless %}
+            {% endif %}
+            <!-- Endif Portfolio enabled -->
             {% unless post.draft %}
             <p class="catalogue-type">{{ post.type }}</p>
             {% else %}
