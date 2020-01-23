@@ -11,10 +11,10 @@
   }
 }
 
-.project-header {
+.page-header {
       font-family: $source, $san-serif;
       color: $grey-0;
-  .header-project-title {
+  .page-header-title {
       font-weight: 700;
       font-size: 38px;
       
@@ -23,7 +23,7 @@
       }
   }
   
-  .header-project-des {
+  .page-header-desc {
       padding-top: 6px;
       font-size: 20px;
       color: $grey-1;
