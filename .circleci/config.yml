@@ -2,42 +2,89 @@ defaults: &defaults
   working_directory: ~/repo
 version: 2
 jobs:
+  bundle_dependencies:
+    <<: *defaults
+    docker:
+      - image: circleci/ruby:2.7.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo      
+      - restore_cache:
+          keys:
+            - rubygems-v1-{{ checksum "Gemfile.lock" }}
+      - run: bundle config set path 'vendor/bundle'
+      - run: bundle install
+      - save_cache:
+          key: rubygems-v1-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ~/repo/vendor/bundle
+      - persist_to_workspace:
+          root: .
+          paths: 
+            - vendor/bundle
+  
   build:
     <<: *defaults
     docker:
       - image: circleci/ruby:2.7.0
-    environment:
-      BUNDLE_PATH: ~/repo/vendor/bundle
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - rubygems-v1-{{ checksum "Gemfile.lock" }}
-            - rubygems-v1-fallback
+      - attach_workspace:
+          at: ~/repo
       - run: bundle config set path 'vendor/bundle'
-      - run: bundle check || bundle install
-      - save_cache:
-          key: rubygems-v1-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
+      - run: bundle
       - run: 
           name: Build Jekyll
           command: |
             bundle exec rake build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - _site
+            - Rakefile
+  
+  test_html:
+    <<: *defaults
+    docker:
+      - image: circleci/ruby:2.7.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - run: bundle config set path 'vendor/bundle'
+      - run: bundle
       - run:
           name: HTMLProofer Test HTML File
           command: |
             bundle exec rake test_html
+  
+  test_structure:
+    <<: *defaults
+    docker:
+      - image: circleci/ruby:2.7.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - run: bundle config set path 'vendor/bundle'
+      - run: bundle
       - run:
           name: HTMLProofer Test Structure Post
           command: |
             bundle exec rake test_structure
-      - persist_to_workspace:
-          root: ./
-          paths:
-            - _site
+
 workflows:
   version: 2
-  build-deploy:
+  build-test:
     jobs:
-      - build
+      - bundle_dependencies
+      - build:
+          requires:
+            - bundle_dependencies
+      - test_html:
+          requires:
+            - build
+      - test_structure:
+          requires:
+            - build
