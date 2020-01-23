@@ -63,7 +63,7 @@ end
 desc 'Test the post structure to be sure no links to the site break'
 task :test_structure do
   puts 'Testing post structure...'.bold
-  file = File.absolute_path('./_site/about/index.html')
+  file = File.absolute_path('./_site/blog/2020/01/welcome-to-jekyll.html')
   if !File.exists?(file)
     $stderr.puts "Error: Folder structure has changed!".bold
     exit

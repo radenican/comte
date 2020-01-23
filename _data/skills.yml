@@ -1,7 +1,7 @@
-- name: Knowledge of Engineering Principles
-- name: Complex Problem Solving
-- name: Collaboration & Teamwork
-- name: Interpersonal Communication
-- name: Back End Development
-- name: Database Development
-- name: Technical Writing
+title: Tags
+list:
+  - name: Jekyll Site
+  - name: Jekyll Theme
+  - name: Blog
+  - name: Resume Website
+  - name: Portfolio Website
