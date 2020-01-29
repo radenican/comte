@@ -92,6 +92,9 @@ jobs:
           command: |
             git config user.email "${USER_EMAIL}"
             git config user.name "${USER_NAME}"
+      - add_ssh_keys:
+          fingerprints:
+            - "5d:2c:82:8b:b7:93:a9:78:71:9d:fc:08:90:7f:cc:9b"
       - run:
           name: Deploy docs to gh-pages branch
           command: |
