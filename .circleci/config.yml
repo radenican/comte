@@ -82,10 +82,11 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/repo
+      - run: npm set prefix=/home/circleci/npm && echo 'export PATH=$HOME/circleci/npm/bin:$PATH' >> /home/circleci/.bashrc
       - run:
           name: Install gh-pages dependencies
           command: |
-            npm install --silent gh-pages@2.0.1
+            npm install -g --silent --loglevel=warn gh-pages@2.0.1
       - run:
           name: Configure git
           command: |
