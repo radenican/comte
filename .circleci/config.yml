@@ -77,28 +77,27 @@ jobs:
   deploy:
     <<: *defaults
     docker:
-      - image: circleci/node:8.10.0
+      - image: circleci/ruby:2.7.0
     steps:
       - checkout
       - attach_workspace:
           at: ~/repo
-      - run: npm set prefix=/home/circleci/npm && echo 'export PATH=$HOME/circleci/npm/bin:$PATH' >> /home/circleci/.bashrc
       - run:
-          name: Install gh-pages dependencies
+          name: Configure Git
           command: |
-            npm install -g --silent --loglevel=warn gh-pages@2.0.1
+            cd ~/repo/_site
+            git init
+            git config user.email "${GITHUB_EMAIL}"
+            git config user.name "${GITHUB_USER}"
       - run:
-          name: Configure git
+          name: Create Commit
           command: |
-            git config user.email "${USER_EMAIL}"
-            git config user.name "${USER_NAME}"
-      - add_ssh_keys:
-          fingerprints:
-            - "5d:2c:82:8b:b7:93:a9:78:71:9d:fc:08:90:7f:cc:9b"
+            git add .
+            git commit -m "automated deployment to GitHub Pages"
       - run:
-          name: Deploy docs to gh-pages branch
+          name: Deploy site to Github Pages
           command: |
-            gh-pages --dist ~/repo/_site
+            git push https://${GITHUB_TOKEN}@github.com/mughieams/comte `git subtree split --prefix dist master`:refs/heads/gh-pages --force &> /dev/null
   
 workflows:
   version: 2
