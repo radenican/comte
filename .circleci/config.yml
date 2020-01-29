@@ -2,7 +2,7 @@ defaults: &defaults
   working_directory: ~/repo
 version: 2
 jobs:
-  bundle_dependencies:
+  bundle_dependencies:  
     <<: *defaults
     docker:
       - image: circleci/ruby:2.7.0
@@ -73,12 +73,34 @@ jobs:
           name: HTMLProofer Test Structure Post
           command: |
             bundle exec rake test_structure
-
+  
+  deploy:
+    <<: *defaults
+    docker:
+      - image: circleci/node:8.10.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "$USER_EMAIL"
+            git config user.name "$USER_NAME"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: |
+            gh-pages --dist ~/repo/_site
+  
 workflows:
   version: 2
   build-test:
     jobs:
-      - bundle_dependencies
+      - bundle_dependencies:
+          branches:
+            ignore:
+              - gh-pages
       - build:
           requires:
             - bundle_dependencies
@@ -88,3 +110,10 @@ workflows:
       - test_structure:
           requires:
             - build
+      - deploy:
+          requires:
+            - test_html
+            - test_structure
+          filters:
+            branch:
+              - master
