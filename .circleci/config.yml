@@ -98,9 +98,10 @@ workflows:
   build-test:
     jobs:
       - bundle_dependencies:
-          branches:
-            ignore:
-              - gh-pages
+          filters:
+            branches:
+              ignore:
+                - gh-pages
       - build:
           requires:
             - bundle_dependencies
@@ -116,4 +117,5 @@ workflows:
             - test_structure
           filters:
             branch:
-              - master
+              only:
+                - master
