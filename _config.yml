@@ -1,10 +1,10 @@
 # Site settings
 title:          Comte
-baseurl:        ""
-url:            ""
+baseurl:        "/comte"
+url:            "https://mughieams.com"
 
 # Google Analytics
-google_analytics: UA-154360741-1
+google_analytics: UA—XXXXXXXX-X
 
 # Author
 author:
@@ -40,7 +40,7 @@ permalink:      /:year/:month/:title
 # Pagination settings
 pagination:
   enabled: true
-  per_page: 3
+  per_page: 5
   permalink: '/page/:num/'
   title: :title
   limit: 0
@@ -48,7 +48,7 @@ pagination:
   sort_reverse: true
 
 # Excludes
-exclude: [ Gemfile, Gemfile.lock, comte.gemspec ]
+exclude: [ vendor, Gemfile, Gemfile.lock, comte.gemspec ]
 
 # Disqus (Set to your disqus id)
 disqus:         jekyll-comte

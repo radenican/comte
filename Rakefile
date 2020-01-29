@@ -48,6 +48,9 @@ task :test_html do
       999, # LinkedIn throttling errors
       403, # Google scholar errors thrown from Travis (links here will be public anyway)
     ],
+    :url_swap => { 
+      Jekyll.configuration({})['baseurl'] => '' # don't break if use baseurl <a href="/baseurl/">
+    },
     :typhoeus => {
       :connecttimeout => 20,
       :timeout => 60,
