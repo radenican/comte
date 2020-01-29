@@ -90,6 +90,7 @@ jobs:
       - run:
           name: Create Commit
           command: |
+            git checkout -b gh-pages
             git add ~/repo/_site/.
             git commit -m "automated deployment to GitHub Pages"
       - run:
