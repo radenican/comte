@@ -83,9 +83,12 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
-          name: Install and configure dependencies
+          name: Install gh-pages dependencies
           command: |
             npm install -g --silent gh-pages@2.0.1
+      - run:
+          name: Configure git
+          command: |
             git config user.email "${USER_EMAIL}"
             git config user.name "${USER_NAME}"
       - run:
