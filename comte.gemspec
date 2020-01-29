@@ -7,12 +7,22 @@ Gem::Specification.new do |spec|
   spec.email         = ["mughieams24@gmail.com"]
 
   spec.summary       = %q{Comte is a minimal Jekyll theme based on Tale by Chester How.}
-  spec.homepage      = "https://github.com/mughieams/comte"
+  spec.homepage      = "https://mughieams.com/comte"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^(assets|_layouts|_includes|_sass|LICENSE|README)}i) }
 
-  spec.add_runtime_dependency "jekyll", "4.0"
+  spec.metadata      = {
+    "bug_tracker_uri" => "https://github.com/mughieams/comte/issues",
+    "changelog_uri"   => "https://github.com/mughieams/comte/releases",
+    "homepage_uri"    => "https://mughieams.com/comte",
+    "source_code_uri" => "https://github.com/mughieams/comte",
+  }
+
+  s.required_ruby_version     = ">= 2.1.0"
+
+  spec.add_runtime_dependency "jekyll", "~> 3.0"
+  spec.add_runtime_dependency "jekyll-paginate-v2", "~> 2.0"
   spec.add_runtime_dependency "jekyll-feed", "~> 0.13"
   spec.add_runtime_dependency "jekyll-seo-tag", "~> 2.6"
 
