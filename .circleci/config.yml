@@ -85,14 +85,12 @@ jobs:
       - run:
           name: Configure Git
           command: |
-            cd ~/repo/_site
-            git init
-            git config user.email "${GITHUB_EMAIL}"
-            git config user.name "${GITHUB_USER}"
+            git config --global user.email "${GITHUB_EMAIL}"
+            git config --global user.name "${GITHUB_USER}"
       - run:
           name: Create Commit
           command: |
-            git add .
+            git add ~/repo/_site/.
             git commit -m "automated deployment to GitHub Pages"
       - run:
           name: Deploy site to Github Pages
