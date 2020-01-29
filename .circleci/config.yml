@@ -95,7 +95,7 @@ jobs:
   
 workflows:
   version: 2
-  build-test:
+  build-test-deploy:
     jobs:
       - bundle_dependencies:
           filters:
@@ -116,6 +116,5 @@ workflows:
             - test_html
             - test_structure
           filters:
-            branch:
-              only:
-                - master
+            branches:
+              only: master
