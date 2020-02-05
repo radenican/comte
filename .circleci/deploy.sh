@@ -18,4 +18,4 @@ rm -rf _site/
 # Add new changes and push it to gh-pages
 git add .
 git commit -a -m "release_${CIRCLE_BUILD_NUM}"
-git push -q --force https://${GITHUB_TOKEN}@github.com/mughieams/comte.git ${CIRCLE_BRANCH}:gh-pages
+git push -q --force https://${GITHUB_TOKEN}@github.com/mughieams/comte.git origin gh-pages
